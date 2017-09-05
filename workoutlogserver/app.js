@@ -2,7 +2,11 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var sequelize = require('./db.js');
-var User = sequelize.import('./models/user');
+
+var User = sequelize.import(__dirname + '\\models\\user');
+
+app.use(bodyParser.json());
+app.use('/api/user', require('./routes/user'));
 
 /*****
 ***DANGER: THIS WILL DROP THE USER TABLE***
@@ -21,44 +25,4 @@ app.listen(3000, function(){
 
 
 User.sync();
-
-app.use(bodyParser.json());
-
-app.post('/api/user', function(req, res) {
-		var username = req.body.user.username;
-		var pass = req.body.user.password;
-		//Need to create a user object and use sequelize to put that user into
-		//
-
-		User.create({
-			username: username,
-			passwordhash: ""
-		}).then(
-		//Sequelize is going to return the object it created from db.
-
-			function createSuccess(user){
-				res.json({
-						user: user,
-						message: 'create'
-				});
-			},
-			function createError(err){
-				res.send(500, err.message);
-			}
-		);
-	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
