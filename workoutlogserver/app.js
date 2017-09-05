@@ -2,17 +2,16 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
-//imports the express module, calls the express function with the app variable
+app.use(require('./middleware/headers'));
 
 app.use('/api/test', function(req, res){
 	res.send("Hello World");
 });
 
-app.use(require('./middleware/headers'));
-
 app.listen(3000, function(){
-	console.log("app is listening on 3000");
+	console.log('App is listening on 3000.')
 });
+
 
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize('workoutlog', 'postgres', 'bdiver1', {
@@ -29,32 +28,60 @@ sequelize.authenticate().then(
 	}
 );
 
+
 var User = sequelize.define('user', {
 	username: Sequelize.STRING,
 	passwordhash: Sequelize.STRING,
 });
 
+
 User.sync();
+
+/*****
+***DANGER: THIS WILL DROP THE USER TABLE***
+User.sync({ force: true });
+****/
+
+
+
 
 app.use(bodyParser.json());
 
-app.post('/app/user', function(req, res){
-	var username = req.body.user.username;
-	var pass = req.body.user.password;
-	User.create({
-		username: username,
-		passwordhash: ""
-	}).then(
-		function createSuccess(user){
-			res.json({
-				user: user,
-				message: 'create'
-			});
-		},
-		function createError(err){
-			res.send(500, error.message);
-		}
-	);
-});
+app.post('/api/user', function(req, res) {
+		var username = req.body.user.username;
+		var pass = req.body.user.password;
+		//Need to create a user object and use sequelize to put that user into
+		//
 
-//User.sync({force: true});
+		User.create({
+			username: username,
+			passwordhash: ""
+		}).then(
+		//Sequelize is going to return the object it created from db.
+
+			function createSuccess(user){
+				res.json({
+						user: user,
+						message: 'create'
+				});
+			},
+			function createError(err){
+				res.send(500, err.message);
+			}
+		);
+	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
