@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 
+//imports the express module, calls the express function with the app variable
+
 app.use('/api/test', function(req, res){
 	res.send("Hello World");
 });
