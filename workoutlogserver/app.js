@@ -1,6 +1,13 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var sequelize = require('./db.js');
+var User = sequelize.import('./models/user');
+
+/*****
+***DANGER: THIS WILL DROP THE USER TABLE***
+User.sync({ force: true });
+****/
 
 app.use(require('./middleware/headers'));
 
@@ -13,37 +20,7 @@ app.listen(3000, function(){
 });
 
 
-var Sequelize = require('sequelize');
-var sequelize = new Sequelize('workoutlog', 'postgres', 'bdiver1', {
-	host: 'localhost',
-	dialect: 'postgres'
-});
-
-sequelize.authenticate().then(
-	function() {
-		console.log('connected to workoutlog postgres db');
-	},
-	function(err){
-		console.log(err);
-	}
-);
-
-
-var User = sequelize.define('user', {
-	username: Sequelize.STRING,
-	passwordhash: Sequelize.STRING,
-});
-
-
 User.sync();
-
-/*****
-***DANGER: THIS WILL DROP THE USER TABLE***
-User.sync({ force: true });
-****/
-
-
-
 
 app.use(bodyParser.json());
 
