@@ -4,14 +4,16 @@ var app = express();
 var bodyParser = require('body-parser');
 var sequelize = require('./db.js');
 var User=sequelize.import(__dirname + '//models//user.js');
-User.sync();/* this will drop (delete) the user table
-User.sync({force:true});
-*/
+//User.sync();/* this will drop (delete) the user table
+sequelize.sync();
+//User.sync({force:true});
+
 app.use(bodyParser.json());
 app.use(require('./middleware/headers.js'));
 app.use(require('./middleware/validate-session.js'));
 app.use('/api/user', require('./routes/user.js'));
 app.use('/api/login', require('./routes/session.js'));
+app.use('/api/definition', require('./routes/definition.js'));
 app.use('/api/test', function(req, res){
     res.send("Hello World");
 });
