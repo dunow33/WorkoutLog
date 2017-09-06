@@ -7,8 +7,8 @@ $(function(){
 
 		var user = {
 			user: {
-				username: username;
-				password: password;
+				username: username,
+				password: password
 			}
 		};
 
@@ -26,8 +26,9 @@ $(function(){
 		signup.done(function(data){
 			if(data.sessionToken){
 				WorkoutLog.setAuthHeader(data.sessionToken);
+				console.log("success");
+				console.log(data.sessionToken);
 			}
-
 			$("#signup-modal").modal("hide");
 			$(".disabled").removeClass("disabled");
 			$("#loginout").text("Logout");
