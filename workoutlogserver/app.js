@@ -9,7 +9,7 @@ User.sync({force:true});
 */
 app.use(bodyParser.json());
 app.use(require('./middleware/headers'));
-//app.use(require('./middleware/validate-session'));
+app.use(require('./middleware/validate-session'));
 app.use('/api/user', require('./routes/user.js'));
 app.use('/api/login', require('./routes/session.js'));
 app.use('/api/test', function(req, res){
