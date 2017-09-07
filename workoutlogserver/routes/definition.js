@@ -32,8 +32,7 @@ router.get('/', function(req, res) {
 	var userid = req.user.id;
 	
 	//findAll by owner method
-	Definition
-		.findAll({
+	Definition.findAll({
 			where: { owner: userid }
 		})
 		.then(
