@@ -18,7 +18,15 @@ $(function(){
 				var len = history.length;
 				var lis = "";
 				for (var i = 0; i < len; i++) {
-					lis += "<li class='list-group-item'>" + history[i].def + " - " + history[i].result + "</li>";
+					lis += "<li class='list-group-item'>" + 
+					// history[i].id + " - " + 
+					history[i].def + " - " + 
+					history[i].result + " " +
+					// pass the log.id into the button's id attribute // watch your quotes!
+					"<div class='pull-right'>" +
+						"<button id='" + history[i].id + "' class='update'><strong>U</strong></button>" +
+						"<button id='" + history[i].id + "' class='remove'><strong>X</strong></button>" +
+					"</div></li>";
 				}
 				$("#history-list").children().remove();
 				$("#history-list").append(lis);
@@ -44,6 +52,32 @@ $(function(){
 	      			$('a[href="#history"]').tab("show");
 		      	});
 			},
+			delete: function (){
+				var thisLog = { 
+		        	id: $(this).attr("id")
+		      	};
+		      	var deleteData = { 
+		      						log: thisLog 
+		      					};
+		      	var deleteLog = $.ajax({
+		         	type: "DELETE",
+		         	url: WorkoutLog.API_BASE + "log",
+		         	data: JSON.stringify(deleteData),
+		         	contentType: "application/json"
+		      	});
+
+		      	$(this).closest("li").remove();
+
+		      	for(var i = 0; i < WorkoutLog.log.workouts.length; i++){
+		      		if(WorkoutLog.log.workouts[i].id == thisLog.id){
+		      			WorkoutLog.log.workouts.splice(i, 1);
+		      		}
+		      	}
+
+		      	deleteLog.fail(function(){
+		      		console.log("Nope, you didn't delete it!!");
+		      	});
+			},
 			fetchAll: function (){
 				var fetchDefs = $.ajax({
 			         type: "GET",
@@ -59,11 +93,11 @@ $(function(){
 			         console.log(err);
 			      });
 			}
-
 		}
 	})
 
 	$("#log-save").on("click", WorkoutLog.log.create);
+	$("#history-list").delegate('.remove', 'click', WorkoutLog.log.delete);
 
 	   // fetch history if we already are authenticated and refreshed
    		if (window.localStorage.getItem("sessionToken")) {
