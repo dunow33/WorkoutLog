@@ -8,11 +8,13 @@ var jwt = require('jsonwebtoken');
 router.post('/', function(req, res) {
 		var username = req.body.user.username;
 		var pass = req.body.user.password;
+		var age = req.body.user.age;
 		//Need to create a user object and use sequelize to put that user into
 
 		User.create({
 			username: username,
-			passwordhash: bcrypt.hashSync(pass, 10)
+			passwordhash: bcrypt.hashSync(pass, 10),
+			age: age
 		}).then(
 		//Sequelize is going to return the object it created from db.
 

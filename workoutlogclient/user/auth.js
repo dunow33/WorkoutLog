@@ -3,12 +3,14 @@ $(function(){
 		signup: function() {
 			var username = $("#su_username").val();
 			var password = $("#su_password").val();
+			var age = $("#su_age").val();
 		
 
 		var user = {
 			user: {
 				username: username,
-				password: password
+				password: password,
+				age: age
 			}
 		};
 
@@ -35,6 +37,7 @@ $(function(){
 			
 			$("#su_username").val("");
 			$("#su_password").val("");
+			$("#su_age").val("");
 			$('a[href="#define"]').tab('show');
 		}).fail(function(){
 			$("#su_error").text("There was an issue with signup.").show();
