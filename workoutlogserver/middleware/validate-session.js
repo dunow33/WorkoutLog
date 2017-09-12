@@ -10,18 +10,18 @@ if(!req.body.user && sessionToken){
 	if(decoded){
 	User.findOne({where: { id: decoded.id}}).then(
 		function(user){
-	req.user = user;
-	next();
-},
-function(){
-	res.status(401).send({error: 'Not authorized'});
-}
-);
-} else {
-	res.status(401).send({error: 'Not authorized'});
-}
+			req.user = user;
+			next();
+		},
+		function(){
+			res.status(401).send({error: 'Not authorized'});
+		}
+	);
+	} else {
+		res.status(401).send({error: 'Not authorized'});
+	}
 });
 } else {
 	next();
-}
+	}
 }
