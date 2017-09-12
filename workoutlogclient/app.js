@@ -16,6 +16,7 @@ var WorkoutLog = (function($, undefined) {
          });
       };
 
+      $("#nav").hide();
       // public
       return {
          API_BASE: API_BASE,

@@ -26,6 +26,7 @@ $(function(){
 		//signup done/fail
 
 		signup.done(function(data){
+			$("#nav").show();
 			if(data.sessionToken){
 				WorkoutLog.setAuthHeader(data.sessionToken);
 				 WorkoutLog.definition.fetchAll();
@@ -63,6 +64,7 @@ $(function(){
 		});
 
 		login.done(function(data){
+			$("#nav").show();
 			if(data.sessionToken){
 				WorkoutLog.setAuthHeader(data.sessionToken);
 				WorkoutLog.definition.fetchAll();

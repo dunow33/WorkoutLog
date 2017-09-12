@@ -1,3 +1,11 @@
 body {
 	 background-image: url('./img/jump_rope.jpg');
 }
+
+.hide {
+	display: none;
+}
+
+/*.show_nav {
+	display: block;
+}*/
