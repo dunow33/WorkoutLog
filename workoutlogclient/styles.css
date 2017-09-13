@@ -2,6 +2,10 @@ body {
 	 background-image: url('./img/jump_rope.jpg');
 }
 
+#nav {
+	background-color: lightblue;
+}
+
 #home {
 	padding-top: 200px;
 	text-align: center;

@@ -84,9 +84,9 @@ $(function(){
 
 		//login method
 
-		loginout: function() {
+		logout: function() {
 			if(window.localStorage.getItem("sessionToken"));
-			$("#loginout").text("Login");
+				$("#nav").hide();
 		}
 		
 		//loginout method
@@ -94,10 +94,10 @@ $(function(){
 	});
 
 	$("#login").on("click", WorkoutLog.login);
-	$("#loginout").on("click", WorkoutLog.loginout);
+	$("#logout").on("click", WorkoutLog.logout);
 
 	if(window.localStorage.getItem("sessionToken")) {
-		$("#loginout").text("Logout");
+		$("#logout").text("Logout");
 	}
 
 	//bind events
