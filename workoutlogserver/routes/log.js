@@ -3,6 +3,7 @@ var sequelize = require('../db');
 var Log = sequelize.import('../models/log');
 var User = sequelize.import('../models/user');
 var Definition = sequelize.import('../models/definition');
+var Profile = sequelize.import('../models/profile');
 
 router.post('/', function(req, res) {
 	//variables

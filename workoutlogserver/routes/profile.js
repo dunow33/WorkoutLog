@@ -3,21 +3,22 @@ var sequelize = require('../db');
 var Log = sequelize.import('../models/log');
 var User = sequelize.import('../models/user');
 var Definition = sequelize.import('../models/definition');
+var Profile = sequelize.import('../models/profile');
 
 router.post('/', function(req, res) {
 	//variables
-    var name = req.body.profle.desc;
-    var age= req.body.profle.age;
+    var name = req.body.profile.desc;
+    var age = req.body.profile.age;
     var weight = req.profile.weight;
     var user = req.user;
 
 	
 	//objects must match the model
-	Log.create({ 
-		   	description: description,
-		   	result: result,
-		   	owner: user.id,
-		   	def: definition
+	Profile.create({ 
+		   	name: name,
+		   	age: age,
+		   	weight: weight,
+		   	user: 
 		}).then(
 			function createSuccess(log){
 				res.json(log);

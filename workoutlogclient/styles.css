@@ -2,10 +2,7 @@ body {
 	 background-image: url('./img/jump_rope.jpg');
 }
 
-.hide {
-	display: none;
+#home {
+	padding-top: 200px;
+	text-align: center;
 }
-
-/*.show_nav {
-	display: block;
-}*/
