@@ -18,7 +18,7 @@ router.post('/', function(req, res) {
 		   	name: name,
 		   	age: age,
 		   	weight: weight,
-		   	user: 
+		   	user: user.id
 		}).then(
 			function createSuccess(log){
 				res.json(log);
@@ -34,7 +34,7 @@ router.get('/', function(req, res) {
 	var userid = req.user.id;
 	
 	//findAll by owner method
-	Log.findAll({
+	Profile.findAll({
 			where: { owner: userid }
 		})
 		.then(function findAllSuccess(data) {
@@ -45,22 +45,6 @@ router.get('/', function(req, res) {
 				res.send(500, err.message);
 			}
 		);
-});
-
-
-router.get('/:id', function(req, res){
-	var data = req.params.id;
-
-	Log.findOne({
-		where: {id : data}
-	}).then(
-		function getSuccess(updateData) {
-			res.json(updateData);
-		},
-		function getError(err) {
-			res.send(500, err.message);
-		}
-	);
 });
 
 router.put('/', function(req, res){

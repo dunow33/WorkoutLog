@@ -89,7 +89,7 @@ $(function(){
 				$("#nav").hide();
 		}
 		
-		//loginout method
+		//logout method
 
 	});
 

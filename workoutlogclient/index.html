@@ -29,6 +29,7 @@
     <li><a href="#define" class="disabled" data-toggle="tab">Define</a></li>
     <li><a href="#log" class="disabled" data-toggle="tab">Log</a></li>
     <li><a href="#history" class="disabled" data-toggle="tab">View History</a></li>
+    <li><a href="#profile" class="disabled" data-toggle="tab">Profile</a></li>
     <a href="#update-log" class="disabled" data-toggle="tab" type="hidden"></a>
 
   </ul>
@@ -89,15 +90,17 @@
         <button id="log-update" class="btn btn-primary">Save</button>
       </div>
 
-
-
-
       <div class="tab-pane fade" id="history">
         <h2>History</h2>
         <ul class="list-group" id="history-list">
         </ul>
       </div>
-    </div>
+
+     <div class="tab-pane fade" id="profile">
+        <h2>Profile</h2>
+        <span id="username"></span>
+      </div>
+  </div>
 
  <div class="modal fade" id="login-modal" role="dialog">
    <div class="modal-dialog">
@@ -152,6 +155,7 @@
     <script src="./user/auth.js"></script> 
     <script src="./workouts/define.js"></script>
     <script src="./workouts/log.js"></script>
+    <script src="./workouts/profile.js"></script>
 <!--
     <script src="./dist/bundle.js"></script> -->
 </body>
