@@ -20,6 +20,10 @@
 			}
 		}
 	});
+		
+	$(document).ready(function(){
+		WorkoutLog.profile.getWorkout();
+	});
 		//$("#username").append(WorkoutLog.);
 			
 	   // fetch history if we already are authenticated and refreshed
