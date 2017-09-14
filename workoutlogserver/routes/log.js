@@ -3,7 +3,6 @@ var sequelize = require('../db');
 var Log = sequelize.import('../models/log');
 var User = sequelize.import('../models/user');
 var Definition = sequelize.import('../models/definition');
-var Profile = sequelize.import('../models/profile');
 
 router.post('/', function(req, res) {
 	//variables
@@ -28,6 +27,8 @@ router.post('/', function(req, res) {
 			}
 		);
 });
+
+
 
 router.get('/', function(req, res) {
 	//user variable
