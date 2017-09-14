@@ -34,16 +34,16 @@ router.get('/', function(req, res) {
 	var userid = req.user.id;
 	
 	//findAll by owner method
-	Profile.findAll({
+		Profile.findAll({
 			where: { owner: userid }
 		})
 		.then(function findAllSuccess(data) {
 				res.json(data);
-			},
-			//failure
-			function findAllError(err) {
-				res.send(500, err.message);
-			}
+		},
+		//failure
+		function findAllError(err) {
+		res.send(500, err.message);
+		}
 		);
 });
 
