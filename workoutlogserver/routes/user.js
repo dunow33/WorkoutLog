@@ -32,4 +32,22 @@ router.post('/', function(req, res) {
 		);
 	});
 
+/*router.get('/', function(req, res) {
+	//user variable
+	var userid = req.user.id;
+	
+	//findAll by owner method
+		Profile.findAll({
+			where: { name: userid }
+		})
+		.then(function findAllSuccess(data) {
+				res.json(data);
+		},
+		//failure
+		function findAllError(err) {
+		res.send(500, err.message);
+		}
+		);
+});*/
+
 module.exports = router;
