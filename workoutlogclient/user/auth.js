@@ -1,6 +1,11 @@
 $(function(){
 	$.extend(WorkoutLog, {
 		signup: function() {
+			var firstName = $("#su_firstName").val();
+			var lastName = $("#su_lastName").val();
+			var currentWeight = $("#su_currentWeight").val();
+			var targetWeight = $("#su_targetWeight").val();
+			var sex = $("#su_sex").val();
 			var username = $("#su_username").val();
 			var password = $("#su_password").val();
 			var age = $("#su_age").val();
@@ -8,6 +13,11 @@ $(function(){
 
 		var user = {
 			user: {
+				firstName = firstName,
+				lastName = lastName,
+				currentWeight = currentWeight,
+				targetWeight = targetWeight,
+				sex = sex,
 				username: username,
 				password: password,
 				age: age
@@ -36,6 +46,11 @@ $(function(){
 			$(".disabled").removeClass("disabled");
 			$("#loginout").text("Logout");
 			
+			$("#su_firstName").val("");
+			$("#su_lastName").val("");
+			$("#su_currentWeight").val("");
+			$("#su_targetWeight").val("");
+			$("#su_sex").val("");
 			$("#su_username").val("");
 			$("#su_password").val("");
 			$("#su_age").val("");

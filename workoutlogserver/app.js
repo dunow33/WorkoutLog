@@ -19,7 +19,7 @@ app.use('/api/user', require('./routes/user'));
 app.use('/api/login', require('./routes/session'));
 app.use('/api/definition', require('./routes/definition'));
 app.use('/api/log', require('./routes/log'));
-app.use('/api/profile', require('./routes/profile'));
+app.use('/api/profile', require('./routes/user'));
 
 app.use('/api/test', function(req, res){
 	res.send("Hello World!!");

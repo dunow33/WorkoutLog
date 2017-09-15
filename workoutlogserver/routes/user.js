@@ -6,12 +6,22 @@ var jwt = require('jsonwebtoken');
 
 
 router.post('/', function(req, res) {
+		var firstName = req.body.user.firstName;
+		var lastName = req.body.user.lastName;
+		var currentWeight = req.body.user.currentWeight;
+		var targetWeight = req.body.user.targetWeight;
+		var sex = req.body.user.sex;
 		var username = req.body.user.username;
 		var pass = req.body.user.password;
 		var age = req.body.user.age;
 		//Need to create a user object and use sequelize to put that user into
 
 		User.create({
+			firstName: firstName,
+			lastName: lastName,
+			currentWeight: currentWeight,
+			targetWeight: targetWeight,
+			sex: sex,
 			username: username,
 			passwordhash: bcrypt.hashSync(pass, 10),
 			age: age
