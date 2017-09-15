@@ -7,7 +7,7 @@ var sequelize = require('./db');
 
 
 //Create table
-sequelize.sync(); //{force: true}); //, to drop then create each time the app starts!
+sequelize.sync()  //{force: true}); //, to drop then create each time the app starts!
 
 app.use(bodyParser.json());
 

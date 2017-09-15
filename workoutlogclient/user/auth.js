@@ -13,14 +13,14 @@ $(function(){
 
 		var user = {
 			user: {
-				firstName = firstName,
-				lastName = lastName,
-				currentWeight = currentWeight,
-				targetWeight = targetWeight,
-				sex = sex,
-				username: username,
-				password: password,
-				age: age
+				firstName : firstName,
+				lastName : lastName,
+				currentWeight : currentWeight,
+				targetWeight : targetWeight,
+				sex : sex,
+				username : username,
+				password : password,
+				age : age
 			}
 		};
 

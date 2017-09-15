@@ -29,6 +29,7 @@
     <li><a href="#define" class="disabled" data-toggle="tab">Define</a></li>
     <li><a href="#log" class="disabled" data-toggle="tab">Log</a></li>
     <li><a href="#history" class="disabled" data-toggle="tab">View History</a></li>
+    <li><a href="#food" class="disabled" data-toggle="tab">Food Diary</a></li>
     <li><a href="#profile" class="disabled" data-toggle="tab">Profile</a></li>
     <a href="#update-log" class="disabled" data-toggle="tab" type="hidden"></a>
 
@@ -95,6 +96,17 @@
         </ul>
       </div>
 
+      <div class="tab-pane fade" id="food">
+        <h2>Food Diary</h2>
+        <label>What did you eat?</label>
+        <select>
+        <option>Eggs</option>
+        <option>Broccoli</option>
+        <option>Chicken</option>
+        <option>Spinach</option>
+        </select>
+      </div>
+
      <div class="tab-pane fade" id="profile">
         <h2>Profile</h2>
         <span id="username"></span>
@@ -133,12 +145,12 @@
       <div class="alert alert-danger" role="alert" style="display:none;" id="su_error"></div>
         <label for="su_firstName">First Name:</label>
         <input id="su_firstName" />
-        <label for="su_lastname">Last Name:</label>
-        <input id="su_username" />
-        <label for="su_lastname">Current Weight:</label>
-        <input id="su_username" />
-        <label for="su_lastname">Target Weight:</label>
-        <input id="su_username" /> 
+        <label for="su_lastName">Last Name:</label>
+        <input id="su_lastName" />
+        <label for="su_currentWeight">Current Weight:</label>
+        <input id="su_currentWeight" />
+        <label for="su_targetWeight">Target Weight:</label>
+        <input id="su_targetWeight" /> 
           <label>
             <input type="checkbox">Sex
           </label>
